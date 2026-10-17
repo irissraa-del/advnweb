@@ -18,3 +18,35 @@ body{background:var(--universe);color:var(--white)}main,footer{position:relative
 .hero-media{border-color:#f279ce55}.electra-stage{background:#391027}.slano-stage{background:#71385e}.rolls-stage{background:#472e50}.rolls-title{color:#fff0fa}.project-external .presentation-link{background:#281238}.contact{background:radial-gradient(ellipse at 85% 35%,#c8459f20,transparent 65%)}.cosmic-sky .gold-fragment{box-shadow:0 0 17px #ec8eda44}.flight-motion-control{position:absolute;right:26px;top:24px;z-index:3;border:1px solid #f279ce66;border-radius:30px;color:#f9c2eb;background:#170c27b8;padding:10px 15px;font-size:10px;backdrop-filter:blur(10px)}.film-rail{cursor:grab;user-select:none;touch-action:pan-y}.film-rail.dragging,.film-rail.dragging .film-card{cursor:grabbing}.film-rail.dragging .film-card{pointer-events:none}.film-card{transform-style:preserve-3d}.film-card:hover{transform:translateY(-12px) rotate(-1.2deg)}.service-orbit{position:sticky;top:125px;box-shadow:0 -15px 50px #10091c80}.service-orbit:nth-child(2){top:145px}.service-orbit:nth-child(3){top:165px}.service-orbit:nth-child(4){top:185px}.service-deck{padding-bottom:60px;gap:70px}.service-orbit:hover{border-color:#f5a4de}.service-symbol{box-shadow:inset 0 0 40px #f279ce0c,0 0 40px #f279ce08}.brand-tile:hover{background:#f279ce14}.social-frame{box-shadow:0 0 80px #9d3b9d0c}.social-vignette{background:radial-gradient(ellipse at center,#13091d60 0%,#13091da0 58%,#10091cf5 100%),linear-gradient(90deg,#10091cd9,transparent 50%,#10091caa)}
 @media(max-width:600px){.service-orbit{top:105px}.service-orbit:nth-child(2){top:115px}.service-orbit:nth-child(3){top:125px}.service-orbit:nth-child(4){top:135px}.service-deck{gap:40px}.flight-motion-control{right:15px;top:15px;padding:9px 12px;font-size:9px}}
 @media(prefers-reduced-motion:reduce){.service-orbit{position:relative;top:auto!important}.flight-motion-control{display:none}.film-card:hover{transform:none}}
+
+
+/* Compact glass-panel navigation for phones and tablets. */
+@media(max-width:1000px){
+  body.menu-is-open{overflow:hidden;overscroll-behavior:none}
+  .mobile-nav{
+    inset:0;width:100%;height:100dvh;min-height:100svh;overflow-y:auto;overscroll-behavior:contain;
+    padding:calc(env(safe-area-inset-top) + 102px) clamp(22px,7vw,42px) calc(env(safe-area-inset-bottom) + 26px);
+    display:flex;flex-direction:column;justify-content:flex-start;gap:11px;
+    color:#f8f0fa;
+    background:radial-gradient(ellipse at 90% 10%,#9c48b533,transparent 48%),radial-gradient(ellipse at 0 85%,#e85cae20,transparent 52%),rgba(13,6,22,.94);
+    -webkit-backdrop-filter:blur(28px) saturate(1.25);backdrop-filter:blur(28px) saturate(1.25);
+  }
+  .mobile-nav[hidden]{display:none}
+  .mobile-menu-head,.mobile-menu-foot{display:flex;align-items:center;justify-content:space-between;font:8px/1.4 ui-monospace,SFMono-Regular,monospace;letter-spacing:.16em;color:#c4a8cc}
+  .mobile-menu-head{margin:0 3px 8px}
+  .mobile-nav a{
+    display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:64px;padding:13px 15px 13px 20px;
+    border:1px solid #ffffff20;border-radius:17px;color:#fff;background:linear-gradient(115deg,#ffffff0e,#ffffff04);
+    box-shadow:0 10px 28px #05020b38;font-size:clamp(19px,5vw,26px);font-weight:550;line-height:1.1;letter-spacing:-.045em;
+    transition:transform .2s ease,border-color .2s ease,background .2s ease;
+  }
+  .mobile-nav a:hover{transform:none;border-color:#f279ce77;background:linear-gradient(115deg,#ffffff16,#ffffff08)}
+  .mobile-nav a:active{transform:scale(.985);background:#ffffff18}
+  .mobile-nav a b{width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center;border:1px solid #f279ce55;border-radius:50%;color:#f279ce;font-size:17px;font-weight:400;line-height:1}
+  .mobile-menu-foot{margin-top:auto;padding:17px 3px 0;border-top:1px solid #ffffff20;color:#aa91b8;font-size:7px}
+  .header.menu-open{background:rgba(19,8,27,.88);color:#fff;border-color:#ffffff20;box-shadow:0 8px 35px #05020b35;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+  .header.menu-open nav{display:none}
+  .header.menu-open .menu-toggle{margin:-5px 0;padding:9px 12px;gap:9px;border:1px solid #ffffff22;border-radius:999px;background:#ffffff0d;color:#fff}
+  .header.menu-open .menu-toggle span{width:22px;height:22px;display:grid;place-items:center;border-radius:50%;background:#ffffff14;font-size:18px;line-height:1}
+}
+@media(prefers-reduced-motion:reduce){.mobile-nav:not([hidden]),.mobile-nav:not([hidden]) a{animation:none}}
