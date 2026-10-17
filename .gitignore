@@ -1,0 +1,7 @@
+assets/selected/
+assets/whatsapp/
+tmp/
+.DS_Store
+
+.firebase/
+firebase-debug*.log
