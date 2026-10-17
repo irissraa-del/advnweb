@@ -1,4 +1,4 @@
-# ADVn Digital
+# ADVN Digital
 The user wants a distinctive portfolio for their sister's work and client acquisition, inspired by https://upthouse.com/. They rejected the entire first design: CSS, buttons, sections. Rebuild comprehensively.
 Brand name derived from supplied Instagram https://www.instagram.com/advndigital/. This is the sole contact destination. No invented location, years, awards, stats, testimonials or team members.
 User supplied all media. Three real projects: Maison de l’Avenir / Electra Elixir (perfume campaign stills and films), Slatko ili Slano (campaign graphics, festival activation, vehicle graphics), King of Rolls (food/trailer photography and menu design).

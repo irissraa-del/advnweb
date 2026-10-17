@@ -1,6 +1,6 @@
-# ADVn redesign: the screening room
+# ADVN redesign: the screening room
 ## Concept
-A creative studio presented as a living screening room: actual campaign imagery fills the screen; an unusually large ADVn wordmark and precise broadcast-like controls frame the work. Work is the first impression. Cinematic dark direction; no brown/gold, arch shapes, orbit lines, cookie cutter text/cards or repeated pill buttons.
+A creative studio presented as a living screening room: actual campaign imagery fills the screen; an unusually large ADVN wordmark and precise broadcast-like controls frame the work. Work is the first impression. Cinematic dark direction; no brown/gold, arch shapes, orbit lines, cookie cutter text/cards or repeated pill buttons.
 ## Tokens
 Background #101112, surface #191b1d, text #f5f5ef, muted #adb0aa, acid accent #dcfa78, light chapter #eceee7, line rgba(245,245,239,.2). Low radii (0-4px); circles only for directional/video controls. Typography Hanken Grotesk 400/500/600/700/800 with intentional contrast, labels monospace. Avoid all-caps Archivo Black block headings.
 ## Motif

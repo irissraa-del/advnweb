@@ -1,6 +1,6 @@
-# ADVn Digital portfolio — transfer package
+# ADVN Digital portfolio — transfer package
 
-**This is the ADVn Digital studio version: dark violet and pink.**
+**This is the ADVN Digital studio version: dark violet and pink.**
 It includes the campaign-image hero, full-bleed scrolling image wall as section
 2, generated service banners, animated selected work, archive deck, films,
 contact brief composer and kinetic pink footer. It does not load the later Israa
@@ -19,8 +19,8 @@ step, npm installation or API key is needed for the existing website.
 
 ## Message to your sister’s Codex
 
-> Open this ADVn Digital project and read START-HERE.md and AGENTS.md. Run it
-> locally. Preserve the dark violet/pink ADVn brand, nine projects and animation
+> Open this ADVN Digital project and read START-HERE.md and AGENTS.md. Run it
+> locally. Preserve the dark violet/pink ADVN brand, nine projects and animation
 > sequences. Ask me what I want to change next.
 
 ## Edit map

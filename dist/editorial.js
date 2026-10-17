@@ -51,7 +51,7 @@
     }else{
       const link=article.querySelector('.presentation-link');
       link.querySelector('strong').innerHTML=`Presentation<br>0${i-3}`;
-      const paper=document.createElement('span');paper.className='presentation-paper';paper.setAttribute('aria-hidden','true');paper.innerHTML='<i></i><i></i><i></i><b>ADVn</b>';link.prepend(paper);
+      const paper=document.createElement('span');paper.className='presentation-paper';paper.setAttribute('aria-hidden','true');paper.innerHTML='<i></i><i></i><i></i><b>ADVN</b>';link.prepend(paper);
       link.setAttribute('aria-label',`Open Canva presentation ${i-3}`);
     }
   });
@@ -74,7 +74,7 @@
   const form=document.getElementById('brief-builder');
   form.addEventListener('submit',event=>{
     event.preventDefault();const data=new FormData(form);const services=data.getAll('service');
-    document.getElementById('brief-preview').value=`Hi ADVn! I’m ${String(data.get('name')).trim()}.\n\n${services.length?'I’m interested in '+services.join(', ')+'.\n\n':''}${String(data.get('idea')).trim()}\n\nI’d love to talk about working together.`;
+    document.getElementById('brief-preview').value=`Hi ADVN! I’m ${String(data.get('name')).trim()}.\n\n${services.length?'I’m interested in '+services.join(', ')+'.\n\n':''}${String(data.get('idea')).trim()}\n\nI’d love to talk about working together.`;
     const result=document.getElementById('brief-result');result.hidden=false;document.getElementById('brief-preview').focus();window.ScrollTrigger?.refresh();
   });
   document.getElementById('copy-brief').addEventListener('click',async()=>{

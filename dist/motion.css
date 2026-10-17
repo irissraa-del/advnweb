@@ -1,4 +1,4 @@
-/* ADVn: a moving editorial canvas. Native scrolling remains in control. */
+/* ADVN: a moving editorial canvas. Native scrolling remains in control. */
 :root{--motion-ease:cubic-bezier(.19,1,.22,1)}
 .header{position:absolute;padding:28px 4%;color:var(--white)}
 .header nav{margin-left:auto;margin-right:35px}.header nav>a:not(.hire){display:none}.header .hire{background:transparent;color:inherit;border-bottom:1px solid #ffffff60;padding:12px 0;min-width:125px}
