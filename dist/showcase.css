@@ -12,3 +12,25 @@
 @media(max-width:700px){.social-pin{padding:0}.social-frame{height:100%;min-height:0;border:0;border-radius:0}.flying-wall{width:920px;height:1900px;left:50%;gap:13px}.wall-column{gap:13px}.social-copy{padding:115px 6% 65px}.social-copy h2{font-size:clamp(36px,10.5vw,55px);margin:24px 0}.social-copy p{font-size:15px}.flight-motion-control{top:108px;right:6%;font-size:8px}.flight-coordinate{left:6%;font-size:6px;bottom:22px}.flight-progress{right:6%;font-size:6px;bottom:22px}}
 @media(max-height:700px){.social-pin{padding:0}.social-copy{padding:100px 6% 35px}.social-copy h2{font-size:clamp(36px,5.7vw,85px);margin:18px 0}.social-copy p{font-size:15px}.flight-motion-control{top:108px}.social-copy .cosmic-button{margin-top:20px}.flight-coordinate,.flight-progress{bottom:18px}}
 @media(prefers-reduced-motion:reduce){.social-pin{height:100svh;min-height:650px;padding:0}.social-frame{min-height:0}}
+
+/* Alternate the featured project copy and artwork from side to side. */
+@media(min-width:701px){
+  .world-panel[data-world=play] .project-heading{flex-direction:row-reverse;text-align:right}
+  .world-panel[data-world=play] .project-stage{margin-left:0;margin-right:auto;transform-origin:40% 50%}
+  .world-panel[data-world=play] .project-overlay{left:auto;right:-12%;padding:40px 0 40px 35px;align-items:flex-end;text-align:right}
+  .world-panel[data-world=play] .project-display{text-align:right}
+  .world-panel[data-world=play] .project-open{left:auto;right:0}
+  .world-panel[data-world=play] .project-caption{padding:0 12% 0 0;text-align:right}
+  .world-panel[data-world=play] .fragment-0{left:-5%!important;right:auto!important}
+  .world-panel[data-world=play] .fragment-1{left:7%!important;right:auto!important}
+}
+@media(max-width:700px){
+  .world-panel[data-world=play] .project-heading{text-align:right}
+  .world-panel[data-world=play] .project-stage{margin-left:0;margin-right:auto}
+  .world-panel[data-world=play] .project-overlay{left:auto;right:-7.5%;padding-left:0;padding-right:0;align-items:flex-end;text-align:right}
+  .world-panel[data-world=play] .project-display{text-align:right}
+  .world-panel[data-world=play] .project-open{left:auto;right:0}
+  .world-panel[data-world=play] .project-caption{padding:0 7% 0 0;text-align:right}
+  .world-panel[data-world=play] .fragment-0{left:-3%!important;right:auto!important}
+  .world-panel[data-world=play] .fragment-1{left:20%!important;right:auto!important}
+}
