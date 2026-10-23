@@ -4,29 +4,8 @@
   document.querySelectorAll('[data-project-count]').forEach(el => { el.textContent = String(projects.length).padStart(2,'0'); });
   const dialog = document.getElementById('case-dialog');
   const content = document.getElementById('case-content');
-  let active = 0;
   let returnFocus = null;
-  const heroVideo = document.getElementById('hero-video');
-  const heroImage = document.getElementById('hero-image');
-  const playLabel = document.getElementById('hero-play-label');
-  const playButton = document.getElementById('hero-play');
   const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  function stopHero() { heroVideo.pause(); heroVideo.hidden = true; heroImage.hidden = false; playLabel.textContent = 'Play film'; playButton.setAttribute('aria-label', 'Play featured campaign film'); }
-  function selectProject(index) {
-    const project = projects[index]; if (!project) return;
-    active = index; stopHero();
-    heroImage.src = project.heroCover || project.cover; heroImage.alt = project.heroAlt || project.coverAlt;
-    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      heroImage.animate([{opacity:.45,transform:'scale(1.025)'},{opacity:1,transform:'scale(1)'}],{duration:500,easing:'cubic-bezier(.16,1,.3,1)'});
-    }
-    document.getElementById('hero-client').textContent = project.client;
-    document.getElementById('hero-index').textContent = String(index + 1).padStart(2,'0');
-    document.querySelectorAll('[data-project]').forEach(button => { const selected = Number(button.dataset.project) === index; button.classList.toggle('active',selected); button.setAttribute('aria-pressed',String(selected)); });
-    playButton.hidden = !project.videos?.length;
-  }
-  const switcher = document.querySelector('.project-switcher');
-  const featured = projects.map((project,index) => ({project,index})).filter(({project}) => project.showInHero !== false && project.cover);
-  if (featured.length) switcher.innerHTML = featured.map(({project,index}) => `<button class="project-thumb ${index === 0 ? 'active' : ''}" data-project="${index}" aria-label="Show ${escape(project.client)}" aria-pressed="${index === 0}"><img src="${escape(project.cover)}" alt=""><span>${String(index+1).padStart(2,'0')}</span></button>`).join('');
   const additions = projects.slice(3);
   if (additions.length) {
     const group = document.createElement('div'); group.className = 'additional-work-grid';
@@ -45,17 +24,9 @@
       group.append(article);
     });
   }
-  document.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => selectProject(Number(button.dataset.project))));
-  playButton.addEventListener('click', async () => {
-    const project = projects[active]; if (!project?.videos?.length) return;
-    if (!heroVideo.paused) { stopHero(); return; }
-    const film = project.videos.find(f => f[1] === 'electra-film') || project.videos[0];
-    heroVideo.src = `./assets/videos/${film[1]}.mp4`; heroVideo.poster = `./assets/posters/${film[1]}.webp`; heroVideo.hidden = false; heroImage.hidden = true;
-    try { await heroVideo.play(); playLabel.textContent = 'Pause film'; playButton.setAttribute('aria-label','Pause featured campaign film'); } catch { stopHero(); openCase(project.id,film[1]); }
-  });
   function openCase(id, selectedFilm) {
     const project = projects.find(p => p.id === id); if (!project) return;
-    returnFocus = document.activeElement; stopHero();
+    returnFocus = document.activeElement;
     const videos = [...(project.videos || [])];
     if (selectedFilm) videos.sort((a,b) => Number(b[1] === selectedFilm)-Number(a[1] === selectedFilm));
     else videos.sort((a,b) => Number(b[1] === 'electra-film')-Number(a[1] === 'electra-film'));
@@ -70,7 +41,6 @@
   document.getElementById('close-case').addEventListener('click',closeCase);
   document.querySelector('.case-brand').addEventListener('click',closeCase);
   document.querySelectorAll('[data-case]').forEach(button => button.addEventListener('click', () => openCase(button.dataset.case)));
-  document.getElementById('hero-case').addEventListener('click', () => openCase(projects[active]?.id));
   const films = projects.flatMap(project => (project.videos || []).map(film => ({project,...{title:film[0],file:film[1]}})));
   const preferred = ['electra-film','slano-event','electra-bottle','slano-launch','electra-sand','electra-spray','electra-mark'];
   films.sort((a,b) => preferred.indexOf(a.file)-preferred.indexOf(b.file));
@@ -108,5 +78,5 @@
   });
   menu.querySelectorAll('a').forEach(link => link.addEventListener('click',closeMenu));
   document.addEventListener('keydown', event => { if (event.key === 'Escape' && !menu.hidden) { closeMenu(); menuButton.focus(); } });
-  document.addEventListener('visibilitychange', () => { if (document.hidden) { stopHero(); content.querySelectorAll('video').forEach(video => video.pause()); } });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) content.querySelectorAll('video').forEach(video => video.pause()); });
 })();

@@ -2,9 +2,68 @@
   if(!window.gsap||!window.ScrollTrigger)return;
   gsap.registerPlugin(ScrollTrigger);
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-  const hero=document.querySelector('.hero-pin');
-  const heading=document.querySelector('.hero h1');
-  heading.innerHTML='Beyond<br><span>the expected.</span>';
+  const flowerSection=document.querySelector('.flower-scroll');
+  const flowerLayer=document.querySelector('.hero-flower-layer');
+  const flowerVideo=document.querySelector('.flower-video');
+  if(flowerVideo){
+    flowerVideo.pause();
+    if(reduced.matches){
+      flowerVideo.preload='none';
+    }else if(flowerVideo.canPlayType('video/webm; codecs="vp9"')){
+      const fps=60;
+      let frameCount=298;
+      let requestedFrame=0;
+      let progress=0;
+      let updateQueued=false;
+      function seekRequestedFrame(){
+        if(reduced.matches||flowerVideo.readyState<2||flowerVideo.seeking)return;
+        const requestedTime=requestedFrame/fps;
+        if(Math.abs(flowerVideo.currentTime-requestedTime)>1/120){
+          flowerVideo.currentTime=requestedTime;
+          return;
+        }
+        flowerLayer.classList.add('is-ready');
+      }
+      function queueFrame(nextProgress=progress){
+        progress=Math.min(1,Math.max(0,nextProgress));
+        requestedFrame=Math.round(progress*(frameCount-1));
+        if(updateQueued)return;
+        updateQueued=true;
+        requestAnimationFrame(()=>{
+          updateQueued=false;
+          seekRequestedFrame();
+        });
+      }
+      flowerVideo.addEventListener('loadedmetadata',()=>{
+        frameCount=Math.min(298,Math.max(1,Math.round(flowerVideo.duration*fps)));
+        queueFrame(progress);
+      });
+      flowerVideo.addEventListener('loadeddata',()=>{
+        flowerVideo.pause();
+        queueFrame(progress);
+      },{once:true});
+      flowerVideo.addEventListener('seeked',()=>{
+        if(Math.round(flowerVideo.currentTime*fps)!==requestedFrame){
+          seekRequestedFrame();
+          return;
+        }
+        flowerLayer.classList.add('is-ready');
+      });
+      flowerVideo.addEventListener('error',()=>flowerLayer.classList.remove('is-ready'));
+      const flowerTrigger=ScrollTrigger.create({
+        trigger:flowerSection,
+        start:'top top',
+        end:'bottom bottom',
+        invalidateOnRefresh:true,
+        onUpdate:self=>queueFrame(self.progress)
+      });
+      flowerVideo.preload='auto';
+      flowerVideo.load();
+      queueFrame(flowerTrigger.progress);
+    }else{
+      flowerVideo.preload='none';
+    }
+  }
   // All content remains visible and usable when motion is disabled.
   if(reduced.matches)return;
   document.documentElement.classList.add('gsap-experience');
@@ -16,14 +75,7 @@
   }
   const entrance=gsap.timeline({defaults:{ease:'power4.out'}});
   entrance.from('.hero-title',{yPercent:115,rotation:4,opacity:0,duration:1.25,stagger:.13},.1)
-    .from('.header,.hero-orbit-label,.hero-top,.hero-bottom,.scroll-cue',{opacity:0,y:20,duration:.8,stagger:.08},.65);
-  mm.add('(min-width: 901px)',()=>{
-    gsap.fromTo('.hero-media',{y:120,scale:.48},{y:0,scale:1,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom bottom',scrub:1}});
-    gsap.to('.hero-wordmark',{y:-150,opacity:0,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom bottom',scrub:1}});
-  });
-  mm.add('(max-width: 900px)',()=>{
-    gsap.fromTo('.hero-media',{y:0,scale:.82},{y:0,scale:1,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom bottom',scrub:.8}});
-  });
+    .from('.header,.hero-top,.scroll-cue',{opacity:0,y:20,duration:.8,stagger:.08},.65);
   mm.add('(min-width: 0px)',()=>{
     document.querySelectorAll('.world-panel').forEach((panel,i)=>{
       const timeline=gsap.timeline({scrollTrigger:{trigger:panel,start:'top 95px',end:()=>'+='+innerHeight*1.85,pin:true,scrub:.65,invalidateOnRefresh:true}});
