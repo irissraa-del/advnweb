@@ -84,7 +84,7 @@
   function closeMenu() {
     menu.hidden = true;
     menuButton.setAttribute('aria-expanded','false');
-    menuButton.innerHTML = 'Menu <span>+</span>';
+    menuButton.setAttribute('aria-label','Open navigation');
     document.querySelector('.header').classList.remove('menu-open');
     document.body.classList.remove('menu-is-open');
     background.forEach(element => { element.inert = false; });
@@ -93,10 +93,11 @@
     if (!menu.hidden) { closeMenu(); return; }
     menu.hidden = false;
     menuButton.setAttribute('aria-expanded','true');
-    menuButton.innerHTML = 'Close <span>×</span>';
+    menuButton.setAttribute('aria-label','Close navigation');
     document.querySelector('.header').classList.add('menu-open');
     document.body.classList.add('menu-is-open');
     background.forEach(element => { element.inert = true; });
+    menu.querySelector('a')?.focus();
   });
   document.addEventListener('keydown', event => {
     if (menu.hidden || event.key !== 'Tab') return;
@@ -107,22 +108,5 @@
   });
   menu.querySelectorAll('a').forEach(link => link.addEventListener('click',closeMenu));
   document.addEventListener('keydown', event => { if (event.key === 'Escape' && !menu.hidden) { closeMenu(); menuButton.focus(); } });
-  const mobileTabs = [...document.querySelectorAll('.mobile-tab-bar a')];
-  const sectionTabs = mobileTabs.filter(link => link.getAttribute('href').startsWith('#'));
-  const mobileSections = sectionTabs.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
-  function setActiveMobileTab(sectionId) {
-    sectionTabs.forEach(link => {
-      if (link.hash === `#${sectionId}`) link.setAttribute('aria-current','location');
-      else link.removeAttribute('aria-current');
-    });
-  }
-  sectionTabs.forEach(link => link.addEventListener('click', () => setActiveMobileTab(link.hash.slice(1))));
-  if ('IntersectionObserver' in window) {
-    const tabObserver = new IntersectionObserver(entries => {
-      const current = entries.filter(entry => entry.isIntersecting).sort((a,b) => Math.abs(a.boundingClientRect.top - window.innerHeight * .42) - Math.abs(b.boundingClientRect.top - window.innerHeight * .42))[0];
-      if (current) setActiveMobileTab(current.target.id);
-    }, {rootMargin:'-35% 0px -55% 0px',threshold:0});
-    mobileSections.forEach(section => tabObserver.observe(section));
-  }
   document.addEventListener('visibilitychange', () => { if (document.hidden) { stopHero(); content.querySelectorAll('video').forEach(video => video.pause()); } });
 })();

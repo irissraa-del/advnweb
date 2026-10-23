@@ -18,3 +18,5 @@ body.order-page{min-height:100vh;overflow-x:hidden;background:radial-gradient(el
 @media(prefers-reduced-motion:reduce){.order-card-image img,.order-card-copy button,.order-submit{transition:none}}
 
 .order-brand{width:138px;flex:0 0 auto}.order-brand .brand-logo{width:100%;height:auto}.order-footer a:first-child{display:block;width:126px;flex:0 0 auto}.order-footer a:first-child .brand-logo{width:100%;height:auto}@media(max-width:600px){.order-brand{width:116px}.order-footer a:first-child{width:108px}}
+
+@media(max-width:1000px){.order-header{z-index:30}.order-back{display:none}.order-header .page-menu{display:block}}
