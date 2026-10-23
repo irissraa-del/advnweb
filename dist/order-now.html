@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#10091c">
+  <title>Order Now — ADVN Digital</title>
+  <meta name="description" content="Choose a creative service from ADVN Digital: Canva designs, logo design, branding, websites, and photoshoots.">
+  <link rel="icon" href="./favicon.svg?rev=advn-rubine-red-2">
+  <link rel="preload" href="./assets/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./styles.css?rev=advn-rubine-red-2">
+  <link rel="stylesheet" href="./universe.css?rev=advn-rubine-red-2">
+  <link rel="stylesheet" href="./order.css?rev=advn-rubine-red-2">
+</head>
+<body class="order-page">
+  <header class="order-header">
+    <a class="order-brand" href="./index.html" aria-label="ADVN Digital home"><img class="brand-logo" src="./assets/advn-digital-logo.svg?rev=advn-rubine-red-2" alt=""></a>
+    <a class="order-back" href="./index.html#work">Back to the portfolio <span>↗</span></a>
+  </header>
+  <main>
+    <section class="order-hero" aria-labelledby="order-title">
+      <div class="order-hero-inner">
+        <p class="order-eyebrow"><span></span> ADVN DIGITAL / ORDER STUDIO</p>
+        <h1 id="order-title">Make room<br><em>for your next idea.</em></h1>
+        <div class="order-hero-bottom">
+          <p>Choose a service to start. We’ll shape the details around your brand, your goals, and the feeling you want people to remember.</p>
+          <a class="order-explore" href="#services">Explore the services <span>↓</span></a>
+        </div>
+        <div class="order-index"><b>01</b><span>—</span>05 / CREATIVE SERVICES</div>
+      </div>
+      <div class="order-orbit order-orbit-one" aria-hidden="true"></div>
+      <div class="order-orbit order-orbit-two" aria-hidden="true"></div>
+    </section>
+
+    <section class="order-services" id="services" aria-labelledby="services-title">
+      <div class="order-section-heading">
+        <div><p class="order-eyebrow">01 / THE SERVICE MENU</p><h2 id="services-title">Find your<br><em>starting point.</em></h2></div>
+        <p>Five ways to make your next move. Pick the one that fits, then tell us a little about what you have in mind.</p>
+      </div>
+      <div class="order-grid">
+        <article class="order-card">
+          <div class="order-card-image"><img src="./assets/order/canva-designs.jpg" alt="Canva campaign layouts and printed social design mockups in violet and rose" loading="lazy"><span>01 / SOCIAL DESIGN</span></div>
+          <div class="order-card-copy"><div class="order-card-title"><span>01</span><h3>Canva designs</h3></div><p>Editable templates and social kits that make it easier to show up consistently and still feel unmistakably like you.</p><button type="button" data-order-service="Canva designs">Choose this service <b>↗</b></button></div>
+        </article>
+        <article class="order-card">
+          <div class="order-card-image"><img src="./assets/order/logo-design.jpg" alt="A designer refining an abstract logo symbol on textured stationery" loading="lazy"><span>02 / LOGO DESIGN</span></div>
+          <div class="order-card-copy"><div class="order-card-title"><span>02</span><h3>Logo design</h3></div><p>A distinctive mark and a flexible logo set, made to look considered everywhere your business appears.</p><button type="button" data-order-service="Logo design">Choose this service <b>↗</b></button></div>
+        </article>
+        <article class="order-card">
+          <div class="order-card-image"><img src="./assets/order/brand-identity.jpg" alt="Premium packaging, color palette, and printed pieces for a fictional brand identity" loading="lazy"><span>03 / BRAND IDENTITY</span></div>
+          <div class="order-card-copy"><div class="order-card-title"><span>03</span><h3>Branding</h3></div><p>A complete visual world: direction, colors, type, packaging, and the details that bring your identity together.</p><button type="button" data-order-service="Brand identity">Choose this service <b>↗</b></button></div>
+        </article>
+        <article class="order-card">
+          <div class="order-card-image"><img src="./assets/order/website-design.jpg" alt="Coordinated editorial website designs displayed on a laptop and phone" loading="lazy"><span>04 / DIGITAL DESIGN</span></div>
+          <div class="order-card-copy"><div class="order-card-title"><span>04</span><h3>Website design</h3></div><p>A polished digital home that feels like your brand and makes the next step easy for your audience.</p><button type="button" data-order-service="Website design">Choose this service <b>↗</b></button></div>
+        </article>
+        <article class="order-card">
+          <div class="order-card-image"><img src="./assets/order/photoshoot.jpg" alt="Professional campaign photo studio with camera, lighting, and sculptural rose fabric" loading="lazy"><span>05 / PHOTOGRAPHY</span></div>
+          <div class="order-card-copy"><div class="order-card-title"><span>05</span><h3>Photoshoot</h3></div><p>Art direction and campaign imagery with a clear mood, expressive details, and a point of view.</p><button type="button" data-order-service="Photoshoot">Choose this service <b>↗</b></button></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="order-request" id="order-request" aria-labelledby="request-title">
+      <div class="order-request-inner">
+        <div class="order-request-copy"><p class="order-eyebrow">02 / START THE CONVERSATION</p><h2 id="request-title">Let’s give<br><em>it a shape.</em></h2><p>Build a short order brief here. It stays on this device until you copy it and choose to send it to ADVN on Instagram.</p><div class="order-request-note"><span>NO PRESSURE.</span><span>JUST A GOOD PLACE TO START.</span></div></div>
+        <form class="order-form" id="order-form">
+          <label for="order-name">Your name or brand</label><input id="order-name" name="name" autocomplete="name" placeholder="What should we call you?" required>
+          <label for="order-service">What would you like to order?</label><select id="order-service" name="service" required><option value="">Choose a service</option><option>Canva designs</option><option>Logo design</option><option>Brand identity</option><option>Website design</option><option>Photoshoot</option></select>
+          <label for="order-notes">Tell us a little about the idea <span>OPTIONAL</span></label><textarea id="order-notes" name="notes" rows="4" placeholder="A few details, goals, or references..."></textarea>
+          <button class="order-submit" type="submit">Prepare my order brief <span>↗</span></button>
+          <p class="order-status" id="order-status" role="status" aria-live="polite"></p>
+          <div class="order-result" id="order-result" hidden><label for="order-message">Your order brief</label><textarea id="order-message" rows="5" readonly></textarea><div><button type="button" id="copy-order">Copy brief</button><a href="https://www.instagram.com/advndigital/" target="_blank" rel="noopener">Open ADVN Instagram ↗</a></div></div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="order-footer"><a href="./index.html" aria-label="ADVN Digital home"><img class="brand-logo" src="./assets/advn-digital-logo.svg?rev=advn-rubine-red-2" alt=""></a><span>GOOD IDEAS, MADE REAL.</span><a href="./index.html#top">Back to the portfolio ↑</a></footer>
+  <nav class="mobile-tab-bar" aria-label="Mobile navigation">
+    <a href="./index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg><span>Work</span></a>
+    <a href="./index.html#films"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span>Films</span></a>
+    <a class="tab-order" href="./order-now.html" aria-current="page" aria-label="Order now"><span class="tab-order-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l1 12H4L5 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></span><span>Order</span></a>
+    <a href="./index.html#studio"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.3"/><path d="M5 20c.5-3.5 3.2-5.5 7-5.5s6.5 2 7 5.5"/></svg><span>Studio</span></a>
+    <a href="./index.html#contact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a3.5 3.5 0 1 1 7 0v1.5a2 2 0 0 1-2 2H7.5A3.5 3.5 0 0 1 4 12Zm16 0a3.5 3.5 0 1 0-7 0v1.5a2 2 0 0 0 2 2h1.5A3.5 3.5 0 0 0 20 12Z"/><path d="M8.5 19.5h7"/></svg><span>Contact</span></a>
+  </nav>
+  <script defer src="./order.js?rev=advn-rubine-red-2"></script>
+</body>
+</html>

@@ -72,13 +72,28 @@
   const filmSubhead=document.createElement('div');filmSubhead.className='film-selection-label';filmSubhead.innerHTML='<span>MORE FROM THE EDIT</span><span>DRAG TO EXPLORE ↔</span>';document.getElementById('film-rail').before(filmSubhead);
   document.getElementById('footer-year').textContent=new Date().getFullYear();
   const form=document.getElementById('brief-builder');
-  form.addEventListener('submit',event=>{
+  form.addEventListener('submit',async event=>{
     event.preventDefault();const data=new FormData(form);const services=data.getAll('service');
-    document.getElementById('brief-preview').value=`Hi ADVN! I’m ${String(data.get('name')).trim()}.\n\n${services.length?'I’m interested in '+services.join(', ')+'.\n\n':''}${String(data.get('idea')).trim()}\n\nI’d love to talk about working together.`;
-    const result=document.getElementById('brief-result');result.hidden=false;document.getElementById('brief-preview').focus();window.ScrollTrigger?.refresh();
+    const name=String(data.get('name')).trim();const email=String(data.get('email')).trim();const idea=String(data.get('idea')).trim();
+    const message=`Hi ADVN! I’m ${name}.\n\n${services.length?'I’m interested in '+services.join(', ')+'.\n\n':''}${idea}\n\nI’d love to talk about working together.`;
+    const resultPanel=document.getElementById('brief-result');const preview=document.getElementById('brief-preview');const status=document.getElementById('brief-status');const submit=form.querySelector('.brief-submit');
+    preview.value=message;document.getElementById('email-fallback').href=`mailto:israa@advndigital.com?subject=${encodeURIComponent('New project enquiry — ADVN Digital')}&body=${encodeURIComponent(`${message}\n\nReply to: ${email}`)}`;
+    resultPanel.hidden=false;status.textContent='Sending your message…';submit.disabled=true;
+    try{
+      const response=await fetch(form.action.replace('https://formsubmit.co/','https://formsubmit.co/ajax/'),{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name,email,_replyto:email,service:services.length?services.join(', '):'General enquiry',message,_subject:'New project enquiry — ADVN Digital',_template:'table',_honey:''})});
+      const responseData=await response.json();
+      if(!response.ok||responseData.success===false||String(responseData.success).toLowerCase()==='false')throw new Error(responseData.message||'FormSubmit could not accept the message.');
+      status.textContent='Your enquiry was submitted. If this is the first submission, check israa@advndigital.com for FormSubmit’s activation email.';
+      form.reset();
+    }catch(error){
+      console.warn('FormSubmit submission failed:',error);
+      status.textContent=/activation/i.test(String(error?.message||''))
+        ? 'FormSubmit sent an activation link to israa@advndigital.com. Click that link before enquiries can be delivered; this test message has not been sent.'
+        : 'We couldn’t submit your enquiry. Your message is ready below; copy it or use “Email ADVN” to send it from your email app.';
+    }finally{submit.disabled=false;document.getElementById('brief-preview').focus();window.ScrollTrigger?.refresh();}
   });
   document.getElementById('copy-brief').addEventListener('click',async()=>{
     const text=document.getElementById('brief-preview');const status=document.getElementById('brief-status');
-    try{await navigator.clipboard.writeText(text.value);status.textContent='Copied. Open Instagram and paste it into your message to @advndigital.';}catch{text.focus();text.select();status.textContent='Select and copy the message, then paste it into Instagram.';}
+    try{await navigator.clipboard.writeText(text.value);status.textContent='Copied. You can paste the message into an email to israa@advndigital.com.';}catch{text.focus();text.select();status.textContent='Select and copy the message, then email it to israa@advndigital.com.';}
   });
 })();

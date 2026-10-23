@@ -1,29 +1,26 @@
 # ADVN Digital
 
-> ADVN Digital is a creative studio portfolio focused on brand identity, campaigns and content, photography and film, and spaces and experiences.
+> ADVN Digital is a creative practice founded in 2020, working where strategy, design and technology meet to build brands and meaningful digital experiences.
 
-This is the official single-page portfolio for ADVN Digital. The project links below point to sections of the homepage unless a separate source is linked. The contact brief composer prepares text locally for copying; it does not send information.
+Ideas that live on the edge create the strongest brands. ADVN Digital works with partners ready to grow, bringing creative perspective to brand development, identity, content and digital experiences.
 
-## Portfolio
+## Pages
 
-- [Homepage](https://advnweb.vercel.app/): Overview of ADVN Digital and selected work.
-- [Selected work](https://advnweb.vercel.app/#work): Featured campaigns and portfolio projects.
-- [Services](https://advnweb.vercel.app/#services): Brand identity, campaigns and content, photography and film, and spaces and experiences.
-- [Films](https://advnweb.vercel.app/#films): Campaign films and moving image.
-- [Studio approach](https://advnweb.vercel.app/#studio): The studio's process and approach.
-- [Contact](https://advnweb.vercel.app/#contact): Local brief composer and Instagram contact link.
+- [Home](https://www.advndigital.com/): Brand introduction, selected work, films, services preview and contact.
+- [About ADVN](https://www.advndigital.com/about.html): Studio history, creative philosophy, approach, industries and international markets.
+- [Services](https://www.advndigital.com/services.html): Brand development and franchising; branding and visual identity; content creation; social media management; web design and development.
+- [Order now](https://www.advndigital.com/order-now.html): Canva designs, logo design, brand identity, website design and photoshoots.
+- [Selected work](https://www.advndigital.com/#work): Campaigns and brand projects.
+- [Films](https://www.advndigital.com/#films): Campaign films and moving image.
+- [Contact](https://www.advndigital.com/#contact): Project enquiry form and Instagram contact.
 
-## Projects
+## Industries
 
-- [Maison de l’Avenir](https://advnweb.vercel.app/#work): Electra Elixir campaign and film.
-- [Slatko ili Slano](https://advnweb.vercel.app/#work): Brand identity, campaign and activation.
-- [King of Rolls](https://advnweb.vercel.app/#work): Brand world, food and menu design.
-- [Weitnauer Group on Behance](https://www.behance.net/gallery/227659451/Weitnauer-Group-Switzerland): Extended project presentation.
-- [Bezdrob Transformation Program on Behance](https://www.behance.net/gallery/193714483/Bezdrob-Transformation-Program-Logo-Social-Media): Identity and social media work.
-- [Nostimo restaurant identity](https://advnweb.vercel.app/#archive): Greek and Italian restaurant branding.
-- [OJAR men’s grooming concept](https://advnweb.vercel.app/assets/documents/ojar-mens-grooming-mockups.pdf): Eight-page retail concept presentation.
-- [Shared presentation 1](https://canva.link/kzt8alscyefzd4t): Original Canva presentation.
-- [Shared presentation 2](https://canva.link/6vd31cs9eotony6): Original Canva presentation.
+Beauty, fashion, food and hospitality, and lifestyle.
+
+## Markets
+
+Middle East, Europe, the Balkans, and Malaysia. Markets to date include Bosnia and Herzegovina, Croatia, UAE, Jordan, Switzerland, Oman, Saudi Arabia and Malaysia.
 
 ## Contact
 
