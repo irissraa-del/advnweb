@@ -65,3 +65,11 @@
  .hero-flower-layer .flower-video{display:none}
  .hero-flower-layer .flower-poster{opacity:1!important}
 }
+@media(min-width:901px){
+ .hero-flower-layer .flower-poster,.hero-flower-layer .flower-video{top:50%;right:auto;left:50%;transform:translate(-50%,-50%) scale(1.12)}
+ .hero-flower-layer .flower-poster{opacity:.55}
+ .hero-flower-layer.is-ready .flower-video{opacity:.55}
+}
+@media(min-width:901px) and (prefers-reduced-motion:reduce){
+ .hero-flower-layer .flower-poster{opacity:.55!important}
+}
